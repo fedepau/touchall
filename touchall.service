@@ -6,7 +6,7 @@ Type=oneshot
 Environment="TA_PARTITION="
 Environment="TA_ACCOUNT="
 Environment="TA_SCRATCH="
-ExecStart=/usr/bin/srun --job-name=touchall --partition $TA_PARTITION --account $TA_ACCOUNT --nodes 1 --tasks 1 --cpus-per-task=24 --time=1:00:00 --pty bash -c "/usr/bin/find $TA_SCRATCH -exec touch {} \;" ;
+ExecStart=/usr/bin/srun --job-name=touchall --partition $TA_PARTITION --account $TA_ACCOUNT --nodes 1 --tasks 1 --cpus-per-task=32 --time=1:00:00 --pty bash -c "/usr/bin/find $TA_SCRATCH -exec touch {} \;" ;
 
 [Install]
 WantedBy=default.target
