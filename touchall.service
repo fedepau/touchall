@@ -3,8 +3,10 @@ Description=Touch files in $SCRATCH recursively.
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/srun --job-name=touchall --partition boost_usr_prod --account IscrB_ATOMIC --nodes 1 --tasks 1 --cpus-per-task=24 --time=1:00:00 --pty bash -c "/usr/bin/find /leonardo_scratch/large/userexternal/cpaulett -exec touch {} \;" ;
-
+Environment="TA_PARTITION="
+Environment="TA_ACCOUNT="
+Environment_"TA_SCRATCH="
+ExecStart=/usr/bin/srun --job-name=touchall --partition $TA_PARTITION --account $TA_ACCOUNT --nodes 1 --tasks 1 --cpus-per-task=24 --time=1:00:00 --pty bash -c "/usr/bin/find $TA_SCRATCH -exec touch {} \;" ;
 
 [Install]
 WantedBy=default.target
