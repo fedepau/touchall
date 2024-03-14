@@ -1,0 +1,10 @@
+[Unit]
+Description=Touch files in $SCRATCH recursively once per week to avoid unwanted deletions.
+
+[Timer]
+OnCalendar=weekly
+Persistent=true
+RandomizedDelaySec=12h
+
+[Install]
+WantedBy=timers.target
